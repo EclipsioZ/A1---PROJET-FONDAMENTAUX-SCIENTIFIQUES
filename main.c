@@ -6,46 +6,46 @@
 
 int main ()
 {
+    int choixMenu;
     int param = 0;
+    int VPIN = 0;
+    int SPIN = 0;
+
     do
     {
-        printf("**** PLANIFICATEUR DE TRAJET ****\n\n");
+        printf("**** Module Cardio ****\n\n");
         printf("Que souhaitez-vous faire?\n\n");
-        printf("(1)     Afficher le  trajet en cours\n");
-        printf("(2)     Ajouter une etape\n");
-        printf("(3)     Supprimer une etape\n");
-        printf("(4)     Supprimer la liste\n");
+        printf("(1)     Modifier l'affichage des LEDS du coeur\n");
+        printf("(2)     Lire les donnees du module cardio\n");
         printf("(autre) Quitter?\n");
 
-        scanf("%d",&param);
+        choixMenu = 0;
+        scanf("%d",&choixMenu);
 
-        switch(param)
+        switch(choixMenu)
 		{
-		    //Affichage du trajet en cours
+		    //Appel du menu gérant le mode d'affichage du coeur en LED
 			case 1 :
             {
-                generationCode (param);
+                //menuCoeur ();
+                generationCode (param, VPIN, SPIN);
+                system ("cls");
+                break;
+            }
+
+            //Appel du menu gérant la lecture des différentes données récoltés sur le module Cardio
+            case 2 :
+            {
+                //menuPoul();
+                //actions ?
+                break;
             }
             default :
             {
                 return 0;
             }
-
-
-
-
-
-
         }
     }
-    while (param < 10);
+    while ((choixMenu > 0) && (choixMenu < 3));
     return 0;
-
-
-
-
-
-
-
-
 }
