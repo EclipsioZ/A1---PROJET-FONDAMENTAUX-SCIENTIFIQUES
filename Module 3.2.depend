@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1542094818 source:c:\users\clem\desktop\projet 1 hexart care\module 3.2\menu.c
+
+1542101404 source:c:\users\clem\desktop\projet 1 hexart care\module 3.2\main.c
+	<stdio.h>
+
+1542104547 c:\users\clem\desktop\projet 1 hexart care\module 3.2\generationcode.h
+
+1542104540 source:c:\users\clem\desktop\projet 1 hexart care\module 3.2\generationcode.c
+	"generationCode.h"
+	<stdio.h>
+
