@@ -2,10 +2,6 @@
 #define GENERATIONCODE_H_INCLUDED
 #define NOM_FICHIER "param.h"
 
-int VPIN = 0;
-int SPIN = 120;
-int battement = 0;
-
-void generationCode (int param);
+void generationCode (int param, int VPIN, int SPIN);
 
 #endif // GENERATIONCODE_H_INCLUDED
