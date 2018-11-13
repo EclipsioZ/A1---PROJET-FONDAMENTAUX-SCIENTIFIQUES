@@ -2,6 +2,11 @@
 */
 #include <stdio.h>
 #include "menu.h"
+
+int param = 0;
+int VPIN = 0;
+int SPIN = 0;
+int choixMenu = 1;
 int main ()
 {
     do
@@ -20,7 +25,7 @@ int main ()
 		    //Appel du menu gérant le mode d'affichage du coeur en LED
 			case 1 :
             {
-                //menuCoeur ();
+                menuCoeur (choixMenu, &param, &VPIN, &SPIN);
                 generationCode (param, VPIN, SPIN);
                 system ("cls");
                 break;
@@ -42,4 +47,3 @@ int main ()
     while ((choixMenu > 0) && (choixMenu < 3));
     return 0;
 }
-
