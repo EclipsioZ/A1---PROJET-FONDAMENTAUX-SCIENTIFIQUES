@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @clementgaston31 Sign out
-0
-0 0 EclipsioZ/A1---PROJET-FONDAMENTAUX-SCIENTIFIQUES
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-A1---PROJET-FONDAMENTAUX-SCIENTIFIQUES/main.c
-67b0e8f  42 minutes ago
-@EclipsioZ EclipsioZ Update main.c
-@EclipsioZ @clementgaston31
-     
-47 lines (41 sloc)  1.09 KB
 /* Cartouche
 */
 #include <stdio.h>
@@ -60,16 +42,4 @@ int main ()
     while ((choixMenu > 0) && (choixMenu < 3));
     return 0;
 }
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
+
