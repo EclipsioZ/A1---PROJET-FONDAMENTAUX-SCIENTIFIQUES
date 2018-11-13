@@ -1,7 +1,7 @@
 #include "generationCode.h"
 #include <stdio.h>
 
-void generationCode (int param)
+void generationCode (int param, int VPIN, int SPIN)
 {
     FILE *f;
     int checkCloture = 1;
@@ -13,10 +13,9 @@ void generationCode (int param)
     }
     else
     {
-        fprintf(f, "#Salut laetitia %d\n", param);
+        fprintf(f, "#define param %d\n", param);
         fprintf(f, "#define VPIN %d\n", VPIN);
         fprintf(f, "#define SPIN %d\n", SPIN);
-        fprintf(f, "#define battement %d\n", battement);
     }
     checkCloture = fclose(f);
     if( checkCloture == 0)
