@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "menu.h"
 #include <Windows.h>
+#include "menu.h"
+
 void Color(int couleurDuTexte, int couleurDeFond) // fonction d'affichage de couleurs
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(H, couleurDeFond * 16 + couleurDuTexte);
 }
-int menuPoul(){
+int menuPoul(int choixMenu,int *param,int *VPIN,int *SPIN)
+{
 	while ((choixMenu > 0) && (choixMenu < 8))
 	{
 		Color(1, 0);
@@ -64,7 +66,7 @@ int menuPoul(){
 		case 7:
 		{
 			system("cls");
-			menuCoeur();
+			menuCoeur(choixMenu, &param, &VPIN, &SPIN);
 			choixMenu = 1;
 			break;
 		}
@@ -77,7 +79,7 @@ int menuPoul(){
 	printf("CIAO !");
 	return 0;
 }
-int menuCoeur() {
+int menuCoeur(int choixMenu,int *param,int *VPIN,int *SPIN) {
 	while ((choixMenu > 0) && (choixMenu < 8))
 	{
 		Color(6, 0);
@@ -99,31 +101,33 @@ int menuCoeur() {
 		{
 		case 1:
 		{
-			int param = 0;
+			*param = 0;
 			choixMenu = 0;
 			system("cls");
 			break;
 		}
 		case 2:
 		{
-			int param = 1;
+			*param = 1;
 			choixMenu = 0;
 			system("cls");
 			break;
 		}
 		case 3:
 		{
-			int param = 2;
+			*param = 2;
 			system("cls");
 			Color(3, 0);
 			int z = 1;
+			int y = 0;
 			while (z = 1)
 			{
 				Color(3, 0);
 				printf("Donner la valeur du nombre X comprise entre 3 et 10 pour le nombre de LED allume : ");
 				Color(9, 0);
-				scanf("%d", &VPIN);
-				if (VPIN >= 3 && VPIN <= 10)
+				scanf("%d", &y);
+				*VPIN = y;
+				if (y >= 3 && y <= 10)
 				{
 					break;
 				}
@@ -143,7 +147,7 @@ int menuCoeur() {
 		}
 		case 4:
 		{
-			int param = 3;
+			*param = 3;
 			system("cls");
 			Color(3, 0);
 			int z = 1;
@@ -156,7 +160,7 @@ int menuCoeur() {
 				scanf("%d", &y);
 				if (y >= 1 && y <= 10)
 				{
-					SPIN = y + 2;
+					*SPIN = y + 2;
 					break;
 				}
 				else
@@ -175,21 +179,22 @@ int menuCoeur() {
 		}
 		case 5:
 		{
-			int param = 4;
+			*param = 4;
 			choixMenu = 0;
-			system("cls");
+			printf ("%d\n", &param);
+			system("pause");
 			break;
 		}
 		case 6:
 		{
-			int param = 5;
+			*param = 5;
 			choixMenu = 0;
 			system("cls");
 			break;
 		}
 		case 7:
 		{
-			int param = 6;
+			*param = 6;
 			choixMenu = 0;
 			system("cls");
 			break;
@@ -200,9 +205,5 @@ int menuCoeur() {
 		}
 		}
 	}
-	return 0;
-}
-int main()
-{
-	menuPoul();
+	return param;
 }
