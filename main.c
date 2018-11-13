@@ -3,14 +3,9 @@
 
 */
 #include <stdio.h>
-
+#include "menu.h"
 int main ()
 {
-    int choixMenu;
-    int param = 0;
-    int VPIN = 0;
-    int SPIN = 0;
-
     do
     {
         printf("**** Module Cardio ****\n\n");
