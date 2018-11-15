@@ -1,32 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "coeur.h"
-void setup() {
-  pinMode(PIN, OUTPUT);
-  }
+#include "param.h"
+int PIN = 2;           // Valeur du premier PIN ÃƒÆ’Ã‚Â  ne pas modifier
+int VAR = 1;           // Valeur pour le paramÃƒÆ’Ã‚Â¨tre 6 et 7 ÃƒÆ’Ã‚Â  ne pas modifier
+bool a = true;         // Valeur boolÃƒÆ’Ã‚Â©enne ÃƒÆ’Ã‚Â  ne pas modifier
+         // Valeur qui varie selon la rapiditÃƒÆ’Ã‚Â© du battement de coeur
 
 // Toutes les leds s'allument suivant le battement de coeur
 int Fonction1()
   {
-  if (a == true)
-  {
-  a = false;
-  pinMode(PIN, OUTPUT);
-  for (PIN=2 ; PIN<12 ;PIN++)
-    {
-      pinMode(PIN, OUTPUT);
-      digitalWrite (PIN, LOW);
-    }
-  }
-  else
-  {
-  a = true;
   pinMode(PIN, OUTPUT);
   for (PIN=2 ; PIN<12 ;PIN++)
     {
       pinMode(PIN, OUTPUT);
       digitalWrite (PIN, HIGH);
     }
-  }
-  delay (battement);
+  delay (battement/4);
+  for (PIN=2 ; PIN<12 ;PIN++)
+    {
+      pinMode(PIN, OUTPUT);
+      digitalWrite (PIN, LOW);
+    }
+  delay (battement/4);
 }
 
 // Une LED sur deux s'allume suivant le battement de coeur
@@ -52,7 +48,7 @@ int Fonction2()
       digitalWrite (PIN, HIGH);
     }
   }
-  delay (battement);
+  delay (battement/2);
 }
 
 // Une LED sur X s'allume suivant le nombre donner par l'utilisateur et les battements de coeur
@@ -78,7 +74,7 @@ int Fonction3()
       digitalWrite (PIN, HIGH);
     }
   }
-  delay (battement);
+  delay (battement/2);
 }
 
 // Une seule LED s'allume suivant le pin donner par l'utilisateur et les battements de coeur
@@ -86,10 +82,10 @@ int Fonction4()
 {
   pinMode(SPIN, OUTPUT);
   digitalWrite (SPIN, HIGH);
-  delay (battement);
+  delay (battement/4);
   pinMode(PIN, OUTPUT);
   digitalWrite (SPIN, LOW);
-  delay (battement);
+  delay (battement/4);
 }
 
 // Une seule LED s'allume en chenille suivant les battements de coeur
@@ -99,9 +95,9 @@ int Fonction5()
   if (PIN >= 2 && PIN <= 12)
   {
     digitalWrite (PIN, HIGH);
-    delay(battement);
+    delay(battement/4);
     digitalWrite (PIN, LOW);
-    delay(battement);
+    delay(battement/4);
   }
   else
   {
@@ -117,7 +113,7 @@ int Fonction6()
   if (VAR == 1 && PIN <= 12)
   {
     digitalWrite (PIN, HIGH);
-    delay(battement);
+    delay(battement/2);
     if (PIN == 11)
     {
       VAR = 2;
@@ -129,7 +125,7 @@ int Fonction6()
     if (VAR == 2 && PIN <= 12)
     {
       digitalWrite (PIN, LOW);
-      delay(battement);
+      delay(battement/2);
       if (PIN == 11)
       {
         VAR = 1;
@@ -148,7 +144,7 @@ int Fonction7(){
   {
     digitalWrite (PIN, HIGH);
     digitalWrite (PIN + 5, HIGH);
-    delay(battement);
+    delay(battement/2);
     if (PIN == 6)
       {
         VAR = 2;
@@ -163,7 +159,7 @@ int Fonction7(){
     {
       digitalWrite (PIN, LOW);
       digitalWrite (PIN + 5, LOW);
-      delay(battement);
+      delay(battement/2);
       if (PIN == 6)
       {
         VAR = 1;
@@ -173,7 +169,7 @@ int Fonction7(){
   }
   PIN ++; 
 }
-void loop() {
+int coeur() {
   if (param==0)
   {Fonction1();}      // Toutes les leds s'allument suivant le battement de coeur
   if (param==1)
