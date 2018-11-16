@@ -1,3 +1,10 @@
+/*
+main.ino
+ROSSI Florian
+
+Programme permettant de : - modifier l'allumage du coeurs en LEDS
+                          - Modifier les parametre du capteur cardio
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "Coeur.h"

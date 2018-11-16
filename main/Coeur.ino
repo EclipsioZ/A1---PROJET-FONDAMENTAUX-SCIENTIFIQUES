@@ -1,3 +1,10 @@
+/*
+Coeur.ino
+ROSSI Florian
+
+Programme permettant de : - modifier l'allumage du coeurs en LEDS
+                        
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "coeur.h"

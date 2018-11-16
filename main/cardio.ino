@@ -1,3 +1,9 @@
+/*
+Cadio.ino
+ROSSI Florian
+
+Programme permettant de : - Modifier les parametre du capteur cardio
+*/
 #include "Coeur.h"
 #include "cardio.h"
 #include "param.h"
