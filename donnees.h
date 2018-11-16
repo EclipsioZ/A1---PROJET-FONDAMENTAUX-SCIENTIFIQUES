@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 donnees.h
 GASTON Clément
@@ -36,5 +37,21 @@ void afficherLigne (cardio *ligneActuel);
 
 // Permet de sauvegarder le dernier tri réalisé dans un nouveau fichier .txt
 int sauvegardeFichier(cardio *premiereLigne);
+=======
+#ifndef DONNEES_H_INCLUDED
+#define DONNEES_H_INCLUDED
+
+typedef struct cardio cardio;
+
+struct cardio{
+    int battement;
+    int temps;
+    cardio *nextEtape;
+};
+
+cardio* chargeFichier(int tailleFichier);
+void afficherLigne(cardio *ligneActuel);
+void afficherFichier(cardio *ligneActuel);
+>>>>>>> master
 
 #endif // DONNEES_H_INCLUDED

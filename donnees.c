@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 donnees.c
 GASTON Clément
@@ -29,6 +30,47 @@ cardio* chargeFichier()
     premiereDonnee->donneeSuivante = NULL;
 
     f = fopen(NOM_FICHIER_LECTURE, "r");
+=======
+#include "donnees.h"
+#include "generationCode.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+cardio* creerLigne(int temps, int battement)
+{
+    cardio *creerLigne ;
+
+    creerLigne = malloc(sizeof(cardio));
+    creerLigne->temps = temps;
+    creerLigne->battement = battement;
+    creerLigne->nextEtape = NULL;
+    return creerLigne;
+}
+
+void ajouterLigneListe(cardio *etapeAAjouter, cardio *derniereEtapeDeLaListe)
+{
+    derniereEtapeDeLaListe->nextEtape = etapeAAjouter;
+}
+
+cardio* chargeFichier(int *tailleFichier)
+{
+    FILE *f;
+    cardio *listeEtape = NULL;
+    cardio *lastEtape = NULL;
+    cardio *currEtape = NULL;
+
+    int temps;
+    int battement;
+    int checkCloture = 1;
+    char line[255];
+
+    listeEtape = malloc(sizeof(cardio));
+    currEtape = listeEtape;
+    listeEtape->nextEtape = NULL;
+
+    f = fopen("batt.txt", "r");
+>>>>>>> master
     if( f == NULL)
     {
         printf("Echec d'ouverture du fichier\n");
@@ -40,6 +82,7 @@ cardio* chargeFichier()
         while(fgets(line, 255, f))
         {
             sscanf(line,"%d;%d\n", &temps, &battement);
+<<<<<<< HEAD
             derniereDonnee = creerLigne(temps, battement);
             ajouterLigneListe(derniereDonnee, donneeActuel);
             donneeActuel = derniereDonnee;
@@ -47,6 +90,17 @@ cardio* chargeFichier()
     }
     verificationFermeture = fclose(f);
     if( verificationFermeture == 0)
+=======
+            lastEtape = creerLigne(temps, battement);
+            ajouterLigneListe(lastEtape, currEtape);
+            currEtape = lastEtape;
+            tailleFichier++;
+            printf ("%d \n", tailleFichier);
+        }
+    }
+    checkCloture = fclose(f);
+    if( checkCloture == 0)
+>>>>>>> master
     {
         //printf("Succes fermeture du fichier\n");
     }
@@ -54,6 +108,7 @@ cardio* chargeFichier()
     {
         printf("Echec fermeture du fichier\n");
     }
+<<<<<<< HEAD
     return premiereDonnee;
 }
 
@@ -87,6 +142,26 @@ void afficherFichier(cardio *premiereLigne)
     cardio *ligneActuel = premiereLigne->donneeSuivante;
 
     if (premiereLigne->donneeSuivante == NULL)
+=======
+    return listeEtape, *tailleFichier;
+}
+
+//Affiche ligne par ligne
+void afficherLigne(cardio *ligneActuel)
+{
+
+    printf("Temps : %d Battement : %d\n",
+            ligneActuel->temps,
+            ligneActuel->battement);
+}
+
+//Affiche la liste des étapes
+void afficherFichier(cardio *premiereLigne)
+{
+    cardio *ligneActuel = premiereLigne->nextEtape;
+
+    if (premiereLigne->nextEtape == NULL)
+>>>>>>> master
     {
         printf("Fichier vide. \n\n");
         return;
@@ -94,6 +169,7 @@ void afficherFichier(cardio *premiereLigne)
     while(ligneActuel != NULL)
     {
         afficherLigne(ligneActuel);
+<<<<<<< HEAD
         ligneActuel = ligneActuel->donneeSuivante;
     }
 }
@@ -144,4 +220,8 @@ int sauvegardeFichier(cardio *premiereLigne)
         printf("Echec fermeture du fichier\n");
     }
     return 1;
+=======
+        ligneActuel = ligneActuel->nextEtape;
+    }
+>>>>>>> master
 }

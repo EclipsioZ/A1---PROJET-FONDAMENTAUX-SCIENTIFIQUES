@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 actions.h
 GASTON Clément
@@ -25,5 +26,11 @@ int battementTempsPrecis (cardio *premiereLigne, int *temps, int *battement);
 
 // Permet l'affichage du poul minimum et maximum du fichier .csv
 void poulMinMax(cardio *premiereLigne);
+=======
+#ifndef ACTIONS_H_INCLUDED
+#define ACTIONS_H_INCLUDED
+
+
+>>>>>>> master
 
 #endif // ACTIONS_H_INCLUDED

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 actions.c
 GASTON Clément
@@ -209,3 +210,8 @@ void poulMinMax (cardio *premiereLigne)
     printf("Le poul minimum est : %d atteint apres %d secondes.\n\n", poulMin->battement, poulMin->temps);
     return ;
 }
+=======
+
+
+void trierFichier ();
+>>>>>>> master
