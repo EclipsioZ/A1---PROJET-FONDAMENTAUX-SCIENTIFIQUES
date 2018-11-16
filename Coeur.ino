@@ -8,7 +8,7 @@ bool a = true;         // Valeur boolÃƒÆ’Ã‚Â©enne ÃƒÆ’Ã‚Â  n
          // Valeur qui varie selon la rapiditÃƒÆ’Ã‚Â© du battement de coeur
 
 // Toutes les leds s'allument suivant le battement de coeur
-int Fonction1()
+int clignote()
   {
   pinMode(PIN, OUTPUT);
   for (PIN=2 ; PIN<12 ;PIN++)
@@ -26,7 +26,7 @@ int Fonction1()
 }
 
 // Une LED sur deux s'allume suivant le battement de coeur
-int Fonction2()
+int unesurdeux()
 {
   if (a == true)
   {
@@ -52,7 +52,7 @@ int Fonction2()
 }
 
 // Une LED sur X s'allume suivant le nombre donner par l'utilisateur et les battements de coeur
-int Fonction3()
+int unesurX()
 {
   if (a == true)
   {
@@ -78,7 +78,7 @@ int Fonction3()
 }
 
 // Une seule LED s'allume suivant le pin donner par l'utilisateur et les battements de coeur
-int Fonction4()
+int unePIN()
 {
   pinMode(SPIN, OUTPUT);
   digitalWrite (SPIN, HIGH);
@@ -89,7 +89,7 @@ int Fonction4()
 }
 
 // Une seule LED s'allume en chenille suivant les battements de coeur
-int Fonction5()
+int chenille()
 {
   pinMode(PIN, OUTPUT);
   if (PIN >= 2 && PIN <= 12)
@@ -107,7 +107,7 @@ int Fonction5()
   }
   
   // Les LEDS s'allument toutes à la chaine puis s'éteignent à la chaines
-int Fonction6()
+int chaine()
 {
   pinMode(PIN, OUTPUT);
   if (VAR == 1 && PIN <= 12)
@@ -137,7 +137,7 @@ int Fonction6()
 }
 
 // Les LEDS s'allument toutes à la chaine par 5 puis s'éteignent à la chaines
-int Fonction7(){
+int chainecinq(){
   pinMode(PIN, OUTPUT);
   pinMode(PIN+5, OUTPUT);
   if (VAR == 1 && PIN <= 7)
@@ -171,19 +171,19 @@ int Fonction7(){
 }
 int coeur() {
   if (param==0)
-  {Fonction1();}      // Toutes les leds s'allument suivant le battement de coeur
+  {clignote();}      // Toutes les leds s'allument suivant le battement de coeur
   if (param==1)
-  {Fonction2();}      // Une LED sur deux s'allume suivant le battement de coeur
+  {unesurdeux();}      // Une LED sur deux s'allume suivant le battement de coeur
   if (param==2)
-  {Fonction3();}      // Une LED sur X s'allume suivant le nombre donner par l'utilisateur et les battements de coeur
+  {unesurX();}      // Une LED sur X s'allume suivant le nombre donner par l'utilisateur et les battements de coeur
   if (param==3)
-  {Fonction4();}      // Une seule LED s'allume suivant le pin donner par l'utilisateur et les battements de coeur
+  {unePIN();}      // Une seule LED s'allume suivant le pin donner par l'utilisateur et les battements de coeur
   if (param==4)
-  {Fonction5();}      // Une seule LED s'allume en chenille suivant les battements de coeur
+  {chenille();}      // Une seule LED s'allume en chenille suivant les battements de coeur
   if (param==5)
-  {Fonction6();}      // Les LEDS s'allument toutes à la chaine puis s'éteignent à la chaines
+  {chaine();}      // Les LEDS s'allument toutes à la chaine puis s'éteignent à la chaines
   if (param==6)
-  {Fonction7();}      // Les LEDS s'allument toutes à la chaine par 5 puis s'éteignent à la chaines
+  {chainecinq();}      // Les LEDS s'allument toutes à la chaine par 5 puis s'éteignent à la chaines
   pinMode(PIN, OUTPUT);
 
 }
