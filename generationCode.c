@@ -1,10 +1,18 @@
-#include "generationCode.h"
-#include <stdio.h>
+/*
+generationCode.c
+GASTON Clément
 
-void generationCode (int param)
+Fichier permettant la création du fichier param.h permettant le réglage du coeur en LEDS
+*/
+
+#include <stdio.h>
+#include "generationCode.h"
+
+// Fonction générant le fichier param.h (qui lui même permet de gerer le réglage du coeur en LEDS)
+void generationParamH (int param, int VPIN, int SPIN, int cardioParam)
 {
     FILE *f;
-    int checkCloture = 1;
+    int verifFermeture = 1;
 
     f = fopen(NOM_FICHIER, "w");
     if(f == NULL)
@@ -13,17 +21,14 @@ void generationCode (int param)
     }
     else
     {
-        fprintf(f, "#Salut laetitia %d\n", param);
+        fprintf(f, "#define param %d\n", param);
         fprintf(f, "#define VPIN %d\n", VPIN);
         fprintf(f, "#define SPIN %d\n", SPIN);
-        fprintf(f, "#define battement %d\n", battement);
+        fprintf(f, "#define CARDIO %d\n", cardioParam);
     }
-    checkCloture = fclose(f);
-    if( checkCloture == 0)
-    {
-        //printf("Succes fermeture du fichier\n");
-    }
-    else
+
+    verifFermeture = fclose(f);
+    if( verifFermeture != 0)
     {
         printf("Echec fermeture du fichier\n");
     }
